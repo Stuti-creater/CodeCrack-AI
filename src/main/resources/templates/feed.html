@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>CodeCrack Feed</title>
+
+<link rel="stylesheet"
+      th:href="@{/css/feed.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+🌍 CodeCrack Feed
+
+</h1>
+
+<div
+class="post"
+
+th:each="post : ${posts}">
+<div th:if="${#lists.isEmpty(feed)}" class="empty-feed">
+
+    <h2>🚀 No posts yet!</h2>
+
+    <p>Be the first to share your coding journey.</p>
+
+</div>
+
+<div class="top">
+
+<div class="avatar">
+
+<span
+th:text="${#strings.substring(post.username,0,1).toUpperCase()}">
+
+S
+
+</span>
+
+</div>
+
+<div>
+
+<h3
+th:text="${post.username}">
+
+</h3>
+
+<small
+th:text="${post.createdAt}">
+
+</small>
+
+</div>
+
+</div>
+
+<div class="content"
+
+th:text="${post.content}">
+
+</div>
+
+<div class="actions">
+
+<button
+th:attr="onclick='likePost(' + ${post.id} + ')'">
+
+❤️ Like
+
+</button>
+<span>
+
+❤️ <span
+th:text="${@socialService.getLikes(post.id)}">
+
+0
+
+</span>
+
+Likes
+
+</span>
+
+<button>
+
+💬 Comment
+
+</button>
+
+<button>
+
+🔁 Share
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function likePost(postId){
+
+fetch("/like",{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/x-www-form-urlencoded"
+},
+
+body:"postId="+postId
+
+})
+.then(response=>response.text())
+.then(data=>{
+
+location.reload();
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>

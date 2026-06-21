@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>
+
+AI Resume Studio
+
+</title>
+
+<link rel="stylesheet"
+      th:href="@{/css/resume-ai.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+🤖 AI Resume Studio
+
+</h1>
+
+<p>
+
+Analyze and improve your resume instantly
+
+</p>
+
+<form action="/resume-ai"
+      method="post"
+      enctype="multipart/form-data">
+
+<input
+type="file"
+name="resume"
+accept=".pdf"
+required>
+
+<br><br>
+
+<button>
+
+🚀 Analyze & Improve Resume
+
+</button>
+
+</form>
+
+<div
+th:if="${result}"
+class="result-card">
+
+
+<pre
+th:text="${result}">
+
+
+</div>
+</pre>
+
+</div>
+
+</div>
+<div th:if="${result}" class="download-buttons">
+
+
+
+    <br>
+
+    <form action="/download-pdf" method="post">
+
+        <button type="submit">
+
+            📥 Download PDF
+
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

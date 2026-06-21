@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progress | CodeCrack AI</title>
+<link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0a0f1f;
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:22px 70px;
+background:rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#60a5fa;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#cbd5e1;
+}
+
+.hero{
+text-align:center;
+padding:60px 20px;
+}
+
+.hero h1{
+font-size:55px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+.card{
+width:280px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+text-align:center;
+}
+
+.card h2{
+font-size:42px;
+color:#60a5fa;
+margin-bottom:10px;
+}
+
+.section{
+width:88%;
+margin:40px auto;
+}
+
+.info-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+}
+
+.info-card h3{
+color:#60a5fa;
+margin-bottom:15px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+
+</style>
+</head>
+
+<body id="theme-body">
+
+<nav>
+
+<div class="logo">
+🚀 CodeCrack AI
+</div>
+
+<div class="nav-links">
+<a href="/home">Home</a>
+<a href="/practice">Practice</a>
+<a href="/mock">Mock</a>
+<a href="/progress">Progress</a>
+</div>
+
+</nav>
+
+<section class="hero">
+
+<h1>📊 Progress Dashboard</h1>
+
+<p>
+Track your interview preparation with real database statistics.
+</p>
+
+</section>
+
+<section class="stats">
+
+<div class="card">
+
+<h2 th:text="${solvedCount}">
+0
+</h2>
+
+<p>
+Questions Solved
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+9
+</h2>
+
+<p>
+DSA Topics
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>
+2026
+</h2>
+
+<p>
+Placement Goal
+</p>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<div class="info-card">
+
+<h3>
+🔥 Current Status
+</h3>
+
+<p>
+Keep solving questions consistently.
+Your solved count is now fetched directly
+from MySQL instead of localStorage.
+</p>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 CodeCrack AI 🚀
+</footer>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+</html>

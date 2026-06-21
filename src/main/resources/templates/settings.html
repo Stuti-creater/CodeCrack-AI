@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Settings</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/settings.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+    <h1>⚙️ Settings</h1>
+
+    <p class="subtitle">
+        Customize your CodeCrack AI experience
+    </p>
+
+    <div class="settings-card">
+
+        <h2>👤 Account</h2>
+
+        <p>Username: Stuti</p>
+
+    </div>
+
+   <div class="theme-buttons">
+
+    <button class="theme-btn"
+            onclick="setTheme('dark')">
+
+        🌙 Dark
+
+    </button>
+
+    <button class="theme-btn"
+            onclick="setTheme('aurora')">
+
+        🌌 Aurora
+
+    </button>
+
+    <button class="theme-btn"
+            onclick="setTheme('saturn')">
+
+        🪐 Saturn
+
+    </button>
+
+    <button class="theme-btn"
+            onclick="undoTheme()">
+
+        ↩ Undo
+
+    </button>
+
+</div>
+    <div class="settings-card">
+
+        <h2>🔔 Notifications</h2>
+
+        <button>
+            Daily Reminder
+        </button>
+
+    </div>
+
+    <div class="settings-card">
+
+    <h2>🏆 Progress</h2>
+
+    <p>
+        This will permanently delete your solved questions
+        and review queue.
+    </p>
+
+    <a th:href="@{/confirm-reset}"
+   class="danger-btn">
+
+    🗑️ Reset Progress
+
+</a>
+
+</div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+
+</body>
+
+</html>

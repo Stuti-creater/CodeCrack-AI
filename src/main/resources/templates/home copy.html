@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CodeCrack AI</title>
+<link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0a0f1f;
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 70px;
+background:rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#60a5fa;
+}
+
+.nav-links{
+display:flex;
+gap:28px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#cbd5e1;
+}
+
+.hero{
+text-align:center;
+padding:70px 20px 40px;
+}
+
+.hero h1{
+font-size:65px;
+margin-bottom:10px;
+}
+
+.hero p{
+color:#94a3b8;
+font-size:20px;
+}
+
+.stats{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+padding:30px;
+}
+
+.card{
+width:280px;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:30px;
+border-radius:24px;
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+}
+
+.card h2{
+font-size:42px;
+color:#60a5fa;
+margin-bottom:10px;
+}
+
+.quick-actions{
+width:88%;
+margin:auto;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:22px;
+padding:30px 0;
+}
+
+.action-card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:28px;
+border-radius:24px;
+}
+
+.action-card h3{
+font-size:24px;
+margin-bottom:10px;
+color:#60a5fa;
+}
+
+.action-card p{
+color:#94a3b8;
+margin-bottom:18px;
+line-height:1.6;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+padding:12px 18px;
+border-radius:12px;
+cursor:pointer;
+}
+
+button a{
+text-decoration:none;
+color:white;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+</style>
+</head>
+
+<body id="theme-body">
+
+<nav>
+<div class="logo">🚀 CodeCrack AI</div>
+
+<div class="nav-links">
+<a href="/home">Home</a>
+<a href="/practice">Practice</a>
+<a href="/mock">Mock</a>
+<a href="/progress">Progress</a>
+<a href="/company/Google">Google</a>
+
+<a href="/company/Amazon">Amazon</a>
+
+<a href="/company/Meta">Meta</a>
+
+<a href="/company/Microsoft">Microsoft</a>
+<a href="/leaderboard">
+    🏆 Leaderboard
+</a>
+<a href="/topic/Arrays">Arrays</a>
+
+<a href="/topic/Binary Search">Binary Search</a>
+
+<a href="/topic/Linked List">Linked List</a>
+
+<a href="/topic/Trees">Trees</a>
+
+<a href="/topic/Graphs">Graphs</a>
+
+<a href="/contest">
+🏆 Contest
+</a>
+<a href="/mock-interview">
+🤖 AI Interview
+</a>
+<a href="/questions">
+    🚀 Start Practicing
+</a>
+<a href="/questions">🚀 Start Practicing</a>
+
+<a href="/contest">🏆 Contest</a>
+
+<a href="/mock-interview">🤖 AI Interview</a>
+
+<a href="/leaderboard">🥇 Leaderboard</a>
+
+<a href="/profile">👤 Profile</a>
+
+<a href="/roadmap">
+    🎯 My Roadmap
+</a>
+<a href="/revision">
+
+    🔁 Review Queue
+
+</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>Welcome Back, Stuti 👋</h1>
+<p>Practice smarter. Crack interviews faster.</p>
+</section>
+
+<section class="stats">
+
+<div class="card">
+<h2 th:text="${solvedCount}">0</h2>
+<p>Questions Solved</p>
+<h2 th:text="${achievement}">
+</h2>
+</div>
+
+<div class="card">
+<h2>0</h2>
+<p>Mock Interviews</p>
+</div>
+
+<div class="card">
+<h2>9</h2>
+<p>DSA Topics</p>
+</div>
+
+</section>
+
+<section class="quick-actions">
+
+<div class="action-card">
+<h3>📘 Continue Practice</h3>
+<p>Practice DSA topic by topic and mark solved questions.</p>
+
+<button onclick="location.href='/practice'">
+Go to Practice
+</button>
+</div>
+
+<div class="action-card">
+<h3>🎤 Mock Interview</h3>
+<p>Simulate Google, Amazon, Meta and Microsoft interviews.</p>
+
+<button onclick="location.href='/mock'">
+Start Mock
+</button>
+</div>
+
+<div class="action-card">
+<h3>📊 Track Progress</h3>
+<p>See solved count, topic completion and analytics.</p>
+
+<button onclick="location.href='/progress'">
+View Progress
+</button>
+</div>
+
+<h2>📚 Question Bank</h2>
+
+<div th:each="q : ${questions}">
+
+    <h3 th:text="${q.title}"></h3>
+
+    <p th:text="${q.difficulty}"></p>
+
+    <p th:text="${q.company}"></p>
+
+    <hr>
+
+</div>
+
+</section>
+
+<footer>
+© 2026 CodeCrack AI 🚀
+</footer>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+</html>
+

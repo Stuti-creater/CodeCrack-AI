@@ -1,0 +1,151 @@
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0f172a,
+            #1e293b
+        );
+
+    color: white;
+
+    min-height: 100vh;
+}
+
+.container {
+
+    width: 80%;
+
+    margin: auto;
+
+    padding: 50px 0;
+}
+
+h1 {
+
+    text-align: center;
+
+    font-size: 50px;
+}
+
+.subtitle {
+
+    text-align: center;
+
+    color: #cbd5e1;
+
+    margin-bottom: 40px;
+}
+
+.settings-card {
+
+    background:
+        rgba(30,41,59,0.8);
+
+    backdrop-filter:
+        blur(10px);
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 0 20px rgba(0,0,0,0.2);
+}
+
+.settings-card h2 {
+
+    margin-top: 0;
+}
+
+button {
+
+    padding: 12px 20px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: white;
+
+    cursor: pointer;
+
+    font-weight: bold;
+}
+
+button:hover {
+
+    transform: scale(1.05);
+}
+.theme-buttons {
+
+    display: flex;
+
+    gap: 15px;
+
+    flex-wrap: wrap;
+}
+
+.theme-btn {
+
+    padding: 15px 25px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    background:
+        rgba(51,65,85,0.9);
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.theme-btn:hover {
+
+    transform: translateY(-3px);
+
+    background:
+        linear-gradient(
+            90deg,
+            #2563eb,
+            #7c3aed
+        );
+        
+}
+.danger-btn {
+
+    background:
+        linear-gradient(
+            90deg,
+            #dc2626,
+            #b91c1c
+        );
+
+    color: white;
+}
+
+.danger-btn:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 25px rgba(220,38,38,0.4);
+}

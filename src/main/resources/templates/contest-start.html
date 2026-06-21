@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+      th:href="@{/css/contest-start.css}">
+      <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+    <title>
+
+        Contest Arena
+
+    </title>
+
+</head>
+
+<body id="theme-body">
+
+<div class="contest-page">
+
+    <div class="contest-header">
+
+        <div>
+
+            <h1 th:text="${contestName}">
+
+            </h1>
+
+            <p>
+
+                Solve all questions before time runs out.
+
+            </p>
+
+        </div>
+
+        <div class="timer-box"
+     id="timer">
+
+    ⏰ 90:00
+
+</div>
+
+    </div>
+
+    <div class="contest-main">
+
+        <div class="questions-panel">
+
+            <h2>
+
+                📚 Questions
+
+            </h2>
+
+            <div th:each="q : ${questions}">
+
+    <div class="question-item">
+
+        <a th:href="@{/question/{id}(id=${q.id})}"
+   th:text="${q.title}">
+
+</a>
+
+        <span th:text="${q.difficulty}">
+
+        </span>
+
+    </div>
+
+</div>
+        </div>
+
+        <div class="contest-info-panel">
+
+            <h2>
+
+                📊 Contest Details
+
+            </h2>
+
+            <p>
+
+                Questions: 5
+
+            </p>
+
+            <p>
+
+                Easy: 2
+
+            </p>
+
+            <p>
+
+                Medium: 2
+
+            </p>
+
+            <p>
+
+                Hard: 1
+
+            </p>
+
+           <button
+        onclick="location.href='/contest/results'">
+
+    Submit Contest
+
+</button>
+
+        </div>
+
+    </div>
+
+</div>
+<script>
+
+let timeLeft = 90 * 60;
+
+const timer = setInterval(
+
+    function(){
+
+        let minutes =
+
+            Math.floor(
+                timeLeft / 60
+            );
+
+        let seconds =
+
+            timeLeft % 60;
+
+        document
+            .getElementById(
+                    "timer"
+            )
+            .innerText =
+
+                    "⏰ "
+
+                    +
+
+                    String(minutes)
+                    .padStart(
+                            2,
+                            '0'
+                    )
+
+                    +
+
+                    ":"
+
+                    +
+
+                    String(seconds)
+                    .padStart(
+                            2,
+                            '0'
+                    );
+
+        timeLeft--;
+
+        if(timeLeft < 0){
+
+            clearInterval(
+                    timer
+            );
+
+            alert(
+
+                    "⏰ Contest Ended! Submitting automatically."
+
+            );
+
+        }
+
+    },
+
+    1000
+
+);
+
+</script>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

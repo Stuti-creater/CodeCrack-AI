@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/resume.css}">
+
+    <link rel="stylesheet"
+          th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+<h1>🤖 AI Resume Analyzer</h1>
+
+<p>
+
+Upload your resume and receive AI-powered feedback.
+
+</p>
+
+<form
+        action="/analyze-resume"
+        method="post"
+        enctype="multipart/form-data">
+
+<input
+        type="file"
+        name="resume"
+        accept=".pdf"
+        required>
+
+<br><br>
+<label>
+
+Target Company
+
+</label>
+
+<br><br>
+
+<select name="company">
+
+    <option>Google</option>
+
+    <option>Amazon</option>
+
+    <option>Microsoft</option>
+
+    <option>Meta</option>
+
+    <option>Adobe</option>
+
+    <option>Atlassian</option>
+
+</select>
+
+<br><br>
+<button>
+
+🚀 Analyze Resume
+
+</button>
+
+</form>
+
+</div>
+
+<script th:src="@{/js/theme.js}"></script>
+
+</body>
+
+</html>

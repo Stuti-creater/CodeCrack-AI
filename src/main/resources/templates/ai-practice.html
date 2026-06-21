@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>AI Practice</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/ai-practice.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+    <h1>🧠 AI Practice</h1>
+
+    <p class="subtitle">
+
+        Personalized recommendations based on your weak areas.
+
+    </p>
+
+    <div class="weakness-card">
+
+        <h2>
+
+            Weakest Topic Detected
+
+        </h2>
+
+        <h3 th:text="${weakestTopic}">
+
+            Arrays
+
+        </h3>
+
+    </div>
+
+    <h2>
+
+        Recommended Questions
+
+    </h2>
+
+    <div th:each="entry : ${questions}"
+         class="question-card">
+
+        <h3 th:text="${entry.key}">
+
+            Two Sum
+
+        </h3>
+
+        <p>
+
+            Difficulty:
+
+            <span th:text="${entry.value.difficulty}">
+
+                Easy
+
+            </span>
+
+        </p>
+
+        <a th:href="@{/question(name=${entry.key})}">
+
+            Practice →
+
+        </a>
+
+    </div>
+
+</div>
+<div class="analysis-card">
+
+    <h2>
+
+        🧠 CodeCrack AI Analysis
+
+    </h2>
+
+    <p>
+
+        Based on your recent performance,
+        we've identified an area that
+        needs more practice.
+
+    </p>
+
+    <div class="weak-topic">
+
+        <span>
+
+            Weakest Topic:
+
+        </span>
+
+        <strong th:text="${weakestTopic}">
+
+        </strong>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

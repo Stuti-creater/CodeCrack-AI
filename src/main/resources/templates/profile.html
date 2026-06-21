@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Profile</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/profile.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+    <div class="container">
+
+    <div class="profile-header">
+
+        <h1>
+            👩‍💻 Stuti Agrawal
+        </h1>
+
+        <p class="subtitle">
+
+            Keep solving. Keep growing. Keep shining. ✨
+
+        </p>
+
+    </div>
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h2 th:text="${solved}">
+                0
+            </h2>
+
+            <p>
+                📚 Questions Solved
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 th:text="${streak}">
+                0
+            </h2>
+
+            <p>
+                🔥 Day Streak
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 th:text="${level}">
+                1
+            </h2>
+
+            <p>
+                ⭐ Level
+            </p>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h2 th:text="${xp}">
+                0
+            </h2>
+
+            <p>
+                💎 XP
+            </p>
+
+        </div>
+
+    </div>
+    <div class="badges-section">
+
+    <h3>
+        🏅 Achievements
+    </h3>
+
+    <div th:each="badge : ${badges}">
+
+        <span class="badge"
+              th:text="${badge}">
+        </span>
+
+    </div>
+
+</div>
+<div class="resume-card">
+
+    <h2>📄 AI Resume</h2>
+
+    <form action="/analyze-resume"
+          method="post"
+          enctype="multipart/form-data">
+
+        <input
+type="file"
+name="resume"
+accept=".pdf"
+required>
+        <br><br>
+
+        <button class="btn">
+
+            🚀 Analyze Resume
+
+        </button>
+
+    </form>
+
+</div>
+<div th:if="${analysis}" class="analysis-card">
+
+    <h2>🤖 AI Analysis</h2>
+
+    <pre th:text="${analysis}"></pre>
+
+</div>
+<form action="/improve-resume"
+      method="post">
+
+    <button class="btn">
+
+        ✨ Improve Resume
+
+    </button>
+
+</form>
+<div th:if="${resume}" class="analysis-card">
+
+    <h2>
+
+        ✨ Improved Resume
+
+    </h2>
+
+    <pre th:text="${resume}"></pre>
+
+</div>
+<div th:if="${resume}">
+
+<form action="/download-docx" method="post">
+
+<button>
+
+📥 DOCX
+
+</button>
+
+</form>
+
+<form action="/download-pdf" method="post">
+
+<button>
+
+📥 PDF
+
+</button>
+
+</form>
+
+</div>
+
+    <div class="quote">
+
+        🌸 Every problem you solve makes you stronger.
+        Keep going, Stuti! 💙
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

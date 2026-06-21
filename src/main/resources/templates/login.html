@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | CodeCrack AI</title>
+    <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Segoe UI',sans-serif;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            overflow:hidden;
+            position:relative;
+            background:
+            linear-gradient(to bottom,#020617,#07142c);
+        }
+
+        /* STARS */
+
+        body::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+            background:
+            radial-gradient(white 1px,transparent 1px);
+            background-size:50px 50px;
+            opacity:.15;
+        }
+
+        /* MOON */
+
+        .moon{
+            position:absolute;
+            top:60px;
+            right:140px;
+
+            width:170px;
+            height:170px;
+            border-radius:50%;
+
+            background:
+            radial-gradient(circle,#dff4ff,#3b82f6);
+
+            box-shadow:
+                    0 0 70px #00d9ff,
+                    0 0 120px #3b82f6;
+        }
+
+        /* MOUNTAINS */
+
+        .mountain-left{
+            position:absolute;
+            left:0;
+            bottom:180px;
+
+            width:0;
+            height:0;
+
+            border-left:260px solid transparent;
+            border-right:260px solid transparent;
+            border-bottom:450px solid #081226;
+        }
+
+        .mountain-right{
+            position:absolute;
+            right:0;
+            bottom:180px;
+
+            width:0;
+            height:0;
+
+            border-left:260px solid transparent;
+            border-right:260px solid transparent;
+            border-bottom:450px solid #081226;
+        }
+
+        /* RIVER */
+
+        .river{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            height:230px;
+
+            background:
+            linear-gradient(
+                    to bottom,
+                    rgba(0,255,255,.15),
+                    rgba(20,30,120,.8)
+            );
+
+            animation:wave 5s infinite linear;
+        }
+
+        .river::before{
+            content:"";
+            position:absolute;
+            width:100%;
+            height:100%;
+
+            background:
+            repeating-linear-gradient(
+                    -45deg,
+                    rgba(0,255,255,.15),
+                    rgba(0,255,255,.15) 10px,
+                    transparent 10px,
+                    transparent 20px
+            );
+
+            opacity:.4;
+        }
+
+        @keyframes wave{
+            0%{
+                transform:translateX(0);
+            }
+            50%{
+                transform:translateX(-10px);
+            }
+            100%{
+                transform:translateX(0);
+            }
+        }
+
+        /* CARD */
+
+        .card{
+            position:relative;
+            z-index:10;
+
+            width:450px;
+            padding:40px;
+
+            border-radius:35px;
+
+            background:
+            rgba(4,15,35,.7);
+
+            backdrop-filter:blur(20px);
+
+            border:
+            1px solid rgba(0,255,255,.2);
+
+            box-shadow:
+                    0 0 50px rgba(0,255,255,.15),
+                    0 0 90px rgba(140,0,255,.15);
+
+            text-align:center;
+        }
+
+        .logo{
+            color:#00e5ff;
+            font-size:26px;
+            margin-bottom:10px;
+        }
+
+        h1{
+            font-size:82px;
+            font-weight:900;
+
+            background:
+            linear-gradient(
+                    to right,
+                    #00f0ff,
+                    #7b5cff,
+                    #d946ef
+            );
+
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+
+            text-shadow:
+                    0 0 25px rgba(0,255,255,0.5);
+
+            margin-bottom:20px;
+        }
+
+        .subtitle{
+            color:#c8d3ff;
+            margin-bottom:35px;
+            font-size:18px;
+        }
+
+        input{
+            width:100%;
+            padding:18px;
+            margin-bottom:18px;
+
+            border-radius:18px;
+            border:
+            1px solid rgba(0,255,255,.2);
+
+            background:#0b1733;
+            color:white;
+
+            outline:none;
+            font-size:16px;
+        }
+
+        input:focus{
+            border-color:#00f0ff;
+            box-shadow:
+                    0 0 18px rgba(0,255,255,.4);
+        }
+
+        input::placeholder{
+            color:#93a7d9;
+        }
+
+        button{
+            width:100%;
+            padding:18px;
+            border:none;
+
+            border-radius:20px;
+            cursor:pointer;
+
+            font-size:24px;
+            font-weight:bold;
+
+            color:white;
+
+            background:
+            linear-gradient(
+                    90deg,
+                    #00e5ff,
+                    #6366f1,
+                    #d946ef
+            );
+
+            box-shadow:
+                    0 0 30px rgba(0,255,255,.3);
+
+            transition:.3s;
+        }
+
+        button:hover{
+            transform:translateY(-4px);
+        }
+
+        .register-link{
+            margin-top:25px;
+            color:#d4dcff;
+        }
+
+        .register-link a{
+            text-decoration:none;
+            color:#00eaff;
+            font-weight:bold;
+        }
+
+    </style>
+</head>
+<body id="theme-body">
+
+<div class="moon"></div>
+
+<div class="mountain-left"></div>
+<div class="mountain-right"></div>
+
+<div class="river"></div>
+
+<div class="card">
+
+    <div class="logo">
+        🚀 CodeCrack AI
+    </div>
+
+    <h1>LOGIN</h1>
+
+    <p class="subtitle">
+        Welcome back. Crack your dream interview.
+    </p>
+
+    <form method="post" action="/login">
+
+        <input
+                type="text"
+                name="username"
+                placeholder="Enter username"
+                required>
+
+        <input
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required>
+
+        <button type="submit">
+            LOGIN
+        </button>
+
+    </form>
+
+    <div class="register-link">
+        New here?
+        <a href="/register">
+            Create account
+        </a>
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+</html>

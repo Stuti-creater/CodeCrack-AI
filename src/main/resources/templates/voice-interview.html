@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>AI Voice Interview</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/voice-interview.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🎤 AI Voice Interview</h1>
+
+    <p class="subtitle">
+        Practice like you're interviewing at Google, Amazon & Microsoft
+    </p>
+
+    <div class="card">
+
+        <label>Select Company</label>
+
+        <select id="company">
+
+            <option>Google</option>
+            <option>Amazon</option>
+            <option>Microsoft</option>
+            <option>Meta</option>
+            <option>Apple</option>
+
+        </select>
+
+        <label>Select Role</label>
+
+        <select id="role">
+
+            <option>Software Engineer</option>
+            <option>Backend Developer</option>
+            <option>Frontend Developer</option>
+            <option>Full Stack Developer</option>
+
+        </select>
+
+        <label>Interview Duration</label>
+
+        <select id="duration">
+
+            <option>15 Minutes</option>
+            <option>30 Minutes</option>
+            <option>45 Minutes</option>
+
+        </select>
+
+        <button id="startBtn">
+
+            🚀 Start Interview
+
+        </button>
+
+    </div>
+    <div class="status-card">
+
+    <span id="status">
+
+        🟢 Ready
+
+    </span>
+
+</div>
+<div class="timer">
+
+    ⏱ <span id="timer">
+
+        00:00
+
+    </span>
+
+</div>
+
+    <div class="interview-card">
+
+        <h2>
+
+            🤖 AI Interviewer
+
+        </h2>
+
+        <div id="chatBox">
+
+    <div class="ai-message">
+
+        Click Start Interview to begin.
+
+    </div>
+
+</div>
+
+    </div>
+
+    <div class="voice-card">
+
+        <h2>
+
+            🎤 Your Answer
+
+        </h2>
+
+        <div id="transcript">
+
+            Waiting for your answer...
+
+        </div>
+
+    </div>
+
+    <div class="controls">
+
+        <button id="micBtn">
+
+            🎤 Start Speaking
+
+        </button>
+
+        <button id="stopBtn">
+
+⏹ Stop Answer
+
+</button>
+
+        <button id="finishBtn">
+
+            🏁 Finish Interview
+
+        </button>
+
+    </div>
+
+</div>
+
+<script th:src="@{/js/voice.js}"></script>
+
+</body>
+
+</html>

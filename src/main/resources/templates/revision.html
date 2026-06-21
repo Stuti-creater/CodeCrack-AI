@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Review Queue</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/revision.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+    <div class="milky-way"></div>
+
+<div class="saturn">
+    <div class="ring"></div>
+</div>
+
+<div class="stars"></div>
+
+<div class="container">
+
+    <h1>🔁 Review Queue</h1>
+
+    <p class="subtitle">
+
+        Revisit solved questions and strengthen your memory
+
+    </p>
+
+    <div th:each="revision : ${revisions}"
+         class="review-card">
+
+        <div>
+
+            <h2 th:text="${revision.questionName}">
+                Two Sum
+            </h2>
+
+            <p>
+
+                ✨ Time to revise
+
+            </p>
+
+        </div>
+
+        <a th:href="@{/question(name=${revision.questionName})}"
+           class="review-btn">
+
+            Review →
+
+        </a>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

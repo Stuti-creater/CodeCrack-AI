@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        Contest Arena
+
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/contest.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+<body id="theme-body">
+
+<div class="arena-page">
+
+    <div class="hero-section">
+
+        <div class="hero-content">
+
+            <div class="live-badge">
+
+                🔴 LIVE NOW
+
+            </div>
+
+            <h1>
+
+                Weekly Contest #28
+
+            </h1>
+
+            <p class="hero-subtitle">
+
+                Compete against top coders and sharpen your DSA skills.
+
+            </p>
+
+            <div class="contest-info">
+
+                <span>
+
+                    ⏱ 90 Minutes
+
+                </span>
+
+                <span>
+
+                    📚 5 Questions
+
+                </span>
+
+                <span>
+
+                    👥 1,284 Participants
+
+                </span>
+
+            </div>
+
+            <div class="difficulty-tags">
+
+                <span class="easy-tag">
+
+                    2 Easy
+
+                </span>
+
+                <span class="medium-tag">
+
+                    2 Medium
+
+                </span>
+
+                <span class="hard-tag">
+
+                    1 Hard
+
+                </span>
+
+            </div>
+
+           <button class="enter-btn"
+        onclick="location.href='/contest/start'">
+
+    🚀 Enter Contest
+
+</button>
+
+        </div>
+
+        <div class="hero-illustration">
+
+            <div class="trophy-circle">
+
+                🏆
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

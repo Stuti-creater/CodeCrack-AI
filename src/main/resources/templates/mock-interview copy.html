@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<body id="theme-body">
+    <h1>
+🎤 AI Mock Interview
+</h1>
+
+<form action="/mock-interview">
+
+    <select name="company">
+
+        <option value="google">
+            Google
+        </option>
+
+        <option value="amazon">
+            Amazon
+        </option>
+
+        <option value="meta">
+            Meta
+        </option>
+
+        <option value="microsoft">
+            Microsoft
+        </option>
+
+    </select>
+
+    <button>
+        Start Interview
+    </button>
+
+</form>
+<h2>
+
+Interview Company:
+
+<span th:text="${company}">
+</span>
+
+</h2>
+
+<h1>🤖 AI Mock Interview</h1>
+
+<h2 id="question">
+Tell me about yourself.
+</h2>
+
+<textarea
+id="answer"
+rows="10"
+cols="60">
+</textarea>
+
+<br><br>
+
+<button onclick="evaluate()">
+Submit Answer
+</button>
+
+<p id="result"></p>
+const questions = [
+
+    "Tell me about yourself.",
+
+    "Explain Binary Search.",
+
+    "How would you optimize Two Sum?"
+
+];
+
+let currentQuestion = 0;
+<script>
+
+function evaluate(){
+
+    const answer =
+            document
+            .getElementById(
+                "answer"
+            )
+            .value
+            .toLowerCase();
+
+    let score = 0;
+
+    if(answer.includes("sorted"))
+        score += 3;
+
+    if(answer.includes("mid"))
+        score += 3;
+
+    if(answer.includes("log"))
+        score += 2;
+
+    if(answer.includes("binary"))
+        score += 2;
+
+    document
+    .getElementById(
+        "result"
+    )
+    .innerText =
+        "Score: "
+        + score
+        + "/10";
+
+}
+currentQuestion++;
+
+if(currentQuestion < questions.length){
+
+    document
+    .getElementById(
+            "question"
+    )
+    .innerText =
+            questions[
+                    currentQuestion
+            ];
+
+    document
+    .getElementById(
+            "answer"
+    )
+    .value = "";
+
+}
+
+</script>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

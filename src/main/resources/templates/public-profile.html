@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Public Profile</title>
+
+<link rel="stylesheet"
+      th:href="@{/css/public-profile.css}">
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+<div class="cover"></div>
+
+<div class="profile-card">
+
+<div class="avatar">
+
+S
+
+</div>
+
+<h1 th:text="${username}">
+Stuti
+</h1>
+
+<p class="bio">
+
+Aspiring Software Engineer • Java • Spring Boot • DSA
+
+</p>
+
+<div class="stats">
+
+<div>
+
+<h2 th:text="${followers}">
+0
+</h2>
+
+<p>Followers</p>
+
+</div>
+
+<div>
+
+<h2 th:text="${following}">
+0
+</h2>
+
+<p>Following</p>
+
+</div>
+
+<div>
+
+<h2 th:text="${xp}">
+0
+</h2>
+
+<p>XP</p>
+
+</div>
+
+</div>
+
+<button
+id="followBtn"
+onclick="followUser()">
+
+➕ Follow
+
+</button>
+
+</div>
+
+<div class="section">
+
+<h2>
+
+🏆 Achievements
+
+</h2>
+
+<div class="badges">
+
+<span>🥇 Java Master</span>
+
+<span>🔥 30 Day Streak</span>
+
+<span>🏆 Contest Winner</span>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+
+📈 Stats
+
+</h2>
+
+<ul>
+
+<li>
+
+📚 Questions Solved :
+<span th:text="${solved}"></span>
+
+</li>
+
+<li>
+
+🎤 AI Interview Score :
+91%
+
+</li>
+
+<li>
+
+📄 Resume Score :
+94%
+
+</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+
+<h2>
+
+📰 Recent Activity
+
+</h2>
+
+<ul>
+
+<li>
+
+Solved Merge Sort
+
+</li>
+
+<li>
+
+Completed Google AI Interview
+
+</li>
+
+<li>
+
+Improved Resume
+
+</li>
+
+<li>
+
+Won Weekly Contest
+
+</li>
+
+</ul>
+
+</div>
+
+</div>
+<script>
+
+function followUser(){
+
+fetch("/follow",{
+
+method:"POST",
+
+headers:{
+"Content-Type":
+"application/x-www-form-urlencoded"
+},
+
+body:
+
+"follower=stuti"
+
++
+
+"&following="
+
++
+
+"[[${username}]]"
+
+})
+
+.then(r=>r.text())
+
+.then(data=>{
+
+document
+.getElementById("followBtn")
+.innerHTML="✔ Following";
+
+});
+
+}
+
+</script>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<link rel="stylesheet"
+      th:href="@{/css/contest-results.css}">
+      <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+    <title>
+
+        Contest Results
+
+    </title>
+
+</head>
+
+<body id="theme-body">
+<div class="results-container">
+
+    <div class="results-card">
+
+        <h1>
+
+            🏆 Contest Results
+
+        </h1>
+
+        <div class="result-box">
+
+            <h2>
+
+                Score
+
+            </h2>
+
+            <p>
+
+                <span th:text="${score}">
+
+                </span>
+
+                /
+
+                <span th:text="${total}">
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <div class="result-box">
+
+            <h2>
+
+                Rank
+
+            </h2>
+
+            <p>
+
+                #
+
+                <span th:text="${rank}">
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <div class="result-box">
+
+            <h2>
+
+                XP Earned
+
+            </h2>
+
+            <p>
+
+                +
+
+                <span th:text="${xpEarned}">
+
+                </span>
+
+            </p>
+
+        </div>
+
+        <button
+                onclick="location.href='/contest'">
+
+            Back to Arena
+
+        </button>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

@@ -1,0 +1,851 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CodeCrack AI</title>
+<link rel="stylesheet"
+      th:href="@{/css/home.css}">
+      <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="sidebar">
+
+    <div class="logo-section">
+
+    <div class="logo">
+        🚀 CodeCrack AI
+    </div>
+
+    <button class="menu-btn"
+            onclick="toggleSidebar()">
+
+        ☰
+
+    </button>
+
+</div>
+
+    <a href="/home">
+
+        🏠 Home
+
+    </a>
+
+    <a href="/questions">
+
+        📚 Practice
+
+    </a>
+
+    
+
+    <a href="/progress">
+
+        📈 Progress
+
+    </a>
+
+    <a href="/topics">
+
+        🧩 DSA Topics
+
+    </a>
+
+    <a href="/contest">
+
+        🏆 Contest
+
+    </a>
+
+    <a href="/leaderboard">
+
+        🥇 Leaderboard
+
+    </a>
+
+    <a href="/mock-interview">
+
+        🤖 AI Interview
+
+    </a>
+    <a href="/voice-interview">
+
+🎤 AI Voice Interview
+
+</a>
+    <a href="/resume-ai">
+
+    📄 AI Resume Studio
+
+</a>
+    <a href="/interview-history">
+
+    📜 Interview History
+
+</a>
+
+    <a href="/ai-practice">
+
+        🧠 AI Practice
+
+    </a>
+    <a href="/feed">
+
+🌍 Community Feed
+
+</a>
+
+<a href="/u/stuti">
+
+👤 Public Profile
+
+</a>
+
+    <a href="/roadmap">
+
+        🎯 Roadmap
+
+    </a>
+
+    <a href="/revision">
+
+        🔁 Review Queue
+
+    </a>
+
+    <a href="/profile">
+
+        👤 Profile
+
+    </a>
+
+    <a href="/settings">
+
+        ⚙️ Settings
+
+    </a>
+    <div class="profile-card">
+
+    <div class="avatar">
+
+        S
+
+    </div>
+
+    <h3>
+
+        Stuti
+
+    </h3>
+
+    <p>
+
+        Advanced Solver
+
+    </p>
+
+    <small>
+
+        Level 5 • 1240 XP
+
+    </small>
+
+    <div class="xp-bar">
+
+        <div class="xp-fill">
+
+        </div>
+
+    </div>
+
+</div>
+
+</div>
+<div class="main-content">
+<div class="dashboard-header">
+
+    <div>
+
+        <h1>
+
+    Welcome back,
+
+    <span th:text="${username}">
+        User
+    </span>! 👋
+
+</h1>
+
+        <p>
+            Practice consistently, improve daily, crack interviews!
+        </p>
+
+    </div>
+
+    <div class="streak-top">
+
+        🔥 7 Day Streak
+
+    </div>
+
+</div>
+
+<div class="stats-grid">
+
+    <!-- Questions Solved -->
+
+    <div class="stat-card">
+
+        <div class="icon-box">
+
+            📚
+
+        </div>
+
+        <h2 th:text="${solvedCount}">
+
+            33
+
+        </h2>
+
+        <p>
+
+            Questions Solved
+
+        </p>
+
+        <span>
+
+            Keep it up! 🔥
+
+        </span>
+
+    </div>
+
+
+    <!-- Mock Interviews -->
+
+    <div class="stat-card">
+
+        <div class="icon-box">
+
+            🎤
+
+        </div>
+
+        <h2>
+
+            0
+
+        </h2>
+
+        <p>
+
+            AI Interviews
+
+        </p>
+
+        <span>
+
+            Start your first mock
+
+        </span>
+
+    </div>
+
+
+    <!-- DSA Topics -->
+
+    <div class="stat-card">
+
+        <div class="icon-box">
+
+            🧩
+
+        </div>
+
+        <h2>
+
+            9
+
+        </h2>
+
+        <p>
+
+            DSA Topics Covered
+
+        </p>
+
+        <span>
+
+            Explore more topics
+
+        </span>
+
+    </div>
+
+
+    <!-- XP -->
+
+    <div class="stat-card xp-card">
+
+        <div class="icon-box xp-icon">
+
+            ⭐
+
+        </div>
+
+        <h2 th:text="${xp}">
+
+    1240
+
+</h2>
+
+        <p>
+
+            Total XP
+
+        </p>
+
+        <span th:text="${achievement}">
+
+            Advanced Solver
+
+        </span>
+
+    </div>
+
+</div>
+<h2 class="section-title">
+
+    Quick Actions
+
+</h2>
+<div class="quick-actions">
+
+    <div class="action-card">
+
+        <div class="action-icon">
+
+    📚
+
+</div>
+
+<h3>
+
+    Start Practice
+
+</h3>
+        <p>Solve DSA questions</p>
+
+        <button onclick="location.href='/questions'">
+
+            Open
+
+        </button>
+
+    </div>
+    <div class="action-card">
+
+    <div class="action-icon">🤖</div>
+<h3>AI Resume Studio</h3>
+
+<p>Analyze, improve & download your resume</p>
+
+<button onclick="location.href='/resume-ai'">
+
+Launch
+
+</button>
+
+</div>
+
+    <div class="action-card">
+
+       <div class="action-icon">🎤</div>
+<h3>AI Interview</h3>
+
+        <p>Simulate real interviews</p>
+
+        <button onclick="location.href='/mock-interview'">
+
+            Open
+
+        </button>
+
+    </div>
+    <div class="action-card">
+
+    <div class="action-icon">🎙</div>
+<h3>AI Voice Interview</h3>
+
+    <p>Practice live voice interviews with AI.</p>
+
+    <button onclick="location.href='/voice-interview'">
+
+        Launch
+
+    </button>
+
+</div>
+
+
+    <div class="action-card">
+
+       <div class="action-icon">📈</div>
+<h3>Track Progress</h3>
+
+        <p>View analytics</p>
+
+        <button onclick="location.href='/progress'">
+
+            Open
+
+        </button>
+
+    </div>
+
+    <div class="action-card">
+
+        <div class="action-icon">🔁</div>
+<h3>Review Queue</h3>
+
+        <p>Revise and improve</p>
+
+        <button onclick="location.href='/revision'">
+
+            Open
+
+        </button>
+
+    </div>
+
+</div>
+<h2 class="section-title">
+
+⚡ Recent Activity
+
+</h2>
+
+<div class="activity-grid">
+
+<div class="activity-card">
+
+<h3>
+
+📄 Resume
+
+</h3>
+
+<p>
+
+Last analyzed
+
+2 hours ago
+
+</p>
+
+</div>
+
+<div class="activity-card">
+
+<h3>
+
+🎤 AI Interview
+
+</h3>
+
+<p>
+
+Completed yesterday
+
+</p>
+
+</div>
+
+<div class="activity-card">
+
+<h3>
+
+🔥 DSA
+
+</h3>
+
+<p>
+
+Solved Binary Search
+
+</p>
+
+</div>
+
+</div>
+
+<h2 class="section-title">
+
+🌍 Community Feed
+
+</h2>
+
+
+<div class="feed-container">
+
+<div
+class="feed-card"
+
+th:each="post : ${feed}">
+
+<div class="feed-top">
+
+<div class="feed-avatar">
+
+<span
+th:text="${#strings.substring(post.username,0,1).toUpperCase()}">
+
+S
+
+</span>
+
+</div>
+
+<div>
+
+<h3 th:text="${post.username}"></h3>
+
+<small th:text="${post.createdAt}"></small>
+
+</div>
+
+</div>
+
+<p
+th:text="${post.content}">
+
+</p>
+
+<div class="feed-actions">
+
+<button
+th:attr="onclick='likePost(' + ${post.id} + ')'">
+
+❤️ Like
+
+</button>
+
+<span>
+
+❤️
+<span
+th:text="${@socialService.getLikes(post.id)}">
+
+0
+
+</span>
+
+Likes
+
+</span>
+
+</div>
+
+</div>
+
+</div>
+<h2 class="section-title">
+
+🔥 Trending Today
+
+</h2>
+
+<div class="trending-grid">
+
+<div class="trend-card">
+
+🥇 Two Sum
+
+</div>
+
+<div class="trend-card">
+
+🌳 Binary Tree
+
+</div>
+
+<div class="trend-card">
+
+⚡ Spring Boot
+
+</div>
+
+<div class="trend-card">
+
+📦 Docker
+
+</div>
+
+</div>
+
+
+    <div class="middle-section">
+
+    <div class="practice-section">
+
+        <div class="practice-header">
+
+            <h2>
+
+                Continue Your Practice
+
+            </h2>
+
+            <a href="/questions">
+
+                View All
+
+            </a>
+
+        </div>
+
+        <div class="practice-list">
+
+            <div th:each="q : ${questions.subList(0,
+        T(java.lang.Math).min(
+                5,
+                questions.size()
+        ))}">
+
+                <div class="practice-item">
+
+                    <div>
+
+                        <h3 th:text="${q.title}">
+
+                        </h3>
+
+                        <p th:text="${q.company}">
+
+                        </p>
+
+                    </div>
+
+                    <span class="difficulty"
+      th:text="${q.difficulty}">
+</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    
+<div class="challenge-column">
+
+    <h2 class="section-title">
+
+        🎯 Daily Challenge
+
+    </h2>
+
+    <div class="challenge-card">
+
+    <div class="challenge-top">
+
+        <span class="challenge-badge">
+
+            Medium
+
+        </span>
+
+    </div>
+
+    <h3>
+
+        Longest Substring Without Repeating Characters
+
+    </h3>
+
+    <p>
+
+        Solve today's curated interview problem and earn bonus XP.
+
+    </p>
+
+    <button onclick="location.href='/questions'">
+
+        🚀 Solve Now
+
+    </button>
+
+</div>
+</div>
+
+    <div class="right-panel">
+
+        <div class="progress-widget">
+
+            <h2>
+
+                Your Progress
+
+            </h2>
+
+            <div class="progress-circle">
+
+                45%
+
+            </div>
+
+        </div>
+
+        <div class="streak-widget">
+
+            <div class="streak-header">
+
+    <h2>
+
+        🔥 7 Day Streak
+
+    </h2>
+
+    <div class="notification">
+
+        🔔
+
+    </div>
+
+</div>
+
+            <div class="week-days">
+
+                <div>
+
+                    Mon
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Tue
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Wed
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Thu
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Fri
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Sat
+
+                    <span>🔥</span>
+
+                </div>
+
+                <div>
+
+                    Sun
+
+                    <span>⚪</span>
+
+                </div>
+
+            </div>
+
+        </div>
+        
+
+    </div>
+
+</div>
+
+<div class="quote-card">
+
+    <p>
+
+        "The only way to learn a new programming language
+        is by writing programs in it."
+
+    </p>
+
+    <span>
+
+        — Dennis Ritchie
+
+    </span>
+
+</div>
+
+<footer>
+© 2026 CodeCrack AI 🚀
+</footer>
+</div>
+<script>
+
+function toggleSidebar(){
+
+    document
+        .querySelector(".sidebar")
+        .classList
+        .toggle("collapsed");
+
+}
+
+</script>
+<script th:src="@{/js/theme.js}">
+</script>
+<script>
+
+function likePost(postId){
+
+fetch("/like",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/x-www-form-urlencoded"
+},
+
+body:"postId="+postId
+
+})
+.then(()=>location.reload());
+
+}
+
+</script>
+
+</body>
+</html>
+

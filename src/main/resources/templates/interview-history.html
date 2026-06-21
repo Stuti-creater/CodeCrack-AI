@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Interview History</title>
+    <link rel="stylesheet"
+      th:href="@{/css/interview-history.css}">
+
+<link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="history-container">
+
+<h1>🤖 AI Interview History</h1>
+
+<div class="history-card"
+
+     th:each="item : ${history}">
+
+    <h2>
+
+        🏢 <span th:text="${item.company}"></span>
+
+    </h2>
+
+    <pre
+        th:text="${item.feedback}">
+    </pre>
+
+</div>
+
+</div>
+
+<script th:src="@{/js/theme.js}">
+</script>
+
+</body>
+
+</html>

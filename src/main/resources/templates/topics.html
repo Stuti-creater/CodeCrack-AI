@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>DSA Topics</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/topics.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+    <h1>🧩 DSA Topics</h1>
+
+    <p class="subtitle">
+
+        Choose a topic and start mastering DSA!
+
+    </p>
+
+    <div class="topics-grid">
+
+        <a th:href="@{/topic/Arrays}"
+           class="topic-card">
+
+            📚 Arrays
+
+        </a>
+
+        <a th:href="@{/topic/Strings}"
+           class="topic-card">
+
+            🔤 Strings
+
+        </a>
+
+        <a th:href="@{/topic/LinkedLists}"
+           class="topic-card">
+
+            🔗 Linked Lists
+
+        </a>
+
+        <a th:href="@{/topic/Stacks}"
+           class="topic-card">
+
+            📚 Stacks
+
+        </a>
+
+        <a th:href="@{/topic/Queues}"
+           class="topic-card">
+
+            🚶 Queues
+
+        </a>
+
+        <a th:href="@{/topic/Trees}"
+           class="topic-card">
+
+            🌳 Trees
+
+        </a>
+
+        <a th:href="@{/topic/Graphs}"
+           class="topic-card">
+
+            🕸️ Graphs
+
+        </a>
+
+        <a th:href="@{/topic/DP}"
+           class="topic-card">
+
+            🧠 Dynamic Programming
+
+        </a>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

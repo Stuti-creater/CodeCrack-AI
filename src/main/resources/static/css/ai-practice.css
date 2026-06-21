@@ -1,0 +1,111 @@
+body {
+
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    color: white;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+
+    background:
+            radial-gradient(circle at 15% 20%,
+                    rgba(56,189,248,0.18),
+                    transparent 30%),
+
+            radial-gradient(circle at 85% 25%,
+                    rgba(6,182,212,0.18),
+                    transparent 25%),
+
+            radial-gradient(circle at 50% 80%,
+                    rgba(59,130,246,0.18),
+                    transparent 30%),
+
+            linear-gradient(
+                    135deg,
+                    #020617,
+                    #0f172a,
+                    #082f49,
+                    #0c4a6e
+            );
+}
+body::before,
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 350px;
+
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(130px);
+
+    z-index: -1;
+}
+
+body::before {
+
+    top: -100px;
+
+    left: -100px;
+
+    background:
+            rgba(56,189,248,0.18);
+}
+
+body::after {
+
+    bottom: -100px;
+
+    right: -100px;
+
+    background:
+            rgba(6,182,212,0.18);
+}
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 50px 0;
+}
+
+h1 {
+    font-size: 60px;
+    color: #38bdf8;
+}
+
+.subtitle {
+    color: #94a3b8;
+    margin-bottom: 40px;
+}
+
+.weakness-card {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 20px rgba(56,189,248,0.2);
+}
+
+.weakness-card h3 {
+    color: #38bdf8;
+    font-size: 36px;
+}
+
+.question-card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.question-card a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: bold;
+}

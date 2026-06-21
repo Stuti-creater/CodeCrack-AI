@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Personalized Roadmap</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/roadmap.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+    <h1>🚀 Personalized Roadmap</h1>
+
+    <p class="subtitle">
+        Your AI-generated journey to coding mastery
+    </p>
+
+    <div class="section">
+
+        <h2>⚠️ Weakest Topic</h2>
+
+        <div class="weakest-topic"
+             th:text="${weakestTopic}">
+
+            Trees
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🎯 Recommended Next</h2>
+
+        <div class="plan-card">
+
+            Reverse Linked List
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🏢 Company Readiness</h2>
+
+        <div class="readiness-grid">
+
+            <div class="readiness-card">
+
+                <h3>Google</h3>
+
+                <div class="score"
+                     th:text="${googleScore}">
+
+                    80
+
+                </div>
+
+                <p>% Ready</p>
+
+            </div>
+
+            <div class="readiness-card">
+
+                <h3>Amazon</h3>
+
+                <div class="score"
+                     th:text="${amazonScore}">
+
+                    75
+
+                </div>
+
+                <p>% Ready</p>
+
+            </div>
+
+            <div class="readiness-card">
+
+                <h3>Meta</h3>
+
+                <div class="score"
+                     th:text="${metaScore}">
+
+                    65
+
+                </div>
+
+                <p>% Ready</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🗓 Today's Plan</h2>
+
+        <div class="plan-card">
+
+            <ul>
+
+                <li th:each="item : ${todayPlan}"
+                    th:text="${item}">
+
+                    Solve 2 problems
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+    <div class="section">
+
+        <h2>🧠 Weak Patterns</h2>
+
+        <div class="plan-card">
+
+            <ul>
+
+                <li th:each="pattern : ${weakPatterns}"
+                    th:text="${pattern}">
+
+                    Sliding Window
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

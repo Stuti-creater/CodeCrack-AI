@@ -1,0 +1,17 @@
+package com.stuti.interview_platform;
+
+import jakarta.annotation.PostConstruct;
+import org.springframework.stereotype.Component;
+
+@Component
+public class QuestionDataLoader {
+
+    @PostConstruct
+    public void init() {
+
+        System.out.println(
+                "🔥 QUESTION LOADER WORKING 🔥"
+        );
+
+    }
+}

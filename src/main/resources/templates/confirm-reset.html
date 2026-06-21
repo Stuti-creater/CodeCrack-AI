@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Confirm Reset</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/confirm-reset.css}">
+          <link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+
+</head>
+
+<body id="theme-body">
+
+<div class="container">
+
+    <div class="card">
+
+        <h1>
+            ⚠️ Reset Progress?
+        </h1>
+
+        <p>
+
+            This will permanently delete:
+
+        </p>
+
+        <ul>
+
+            <li>
+                📚 Solved Questions
+            </li>
+
+            <li>
+                🔁 Review Queue
+            </li>
+
+            <li>
+                🔥 Streak Data
+            </li>
+
+        </ul>
+
+        <p>
+
+            This action cannot be undone.
+
+        </p>
+
+        <div class="buttons">
+
+            <a th:href="@{/settings}"
+               class="cancel-btn">
+
+                Cancel
+
+            </a>
+
+            <form th:action="@{/reset-progress}"
+                  method="post">
+
+                <button class="danger-btn">
+
+                    Yes, Reset Everything
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

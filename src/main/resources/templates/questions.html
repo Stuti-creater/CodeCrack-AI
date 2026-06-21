@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body id="theme-body">
+    <div class="background-bubbles">
+
+    <div class="bubble bubble1">
+
+        "Code. Learn. Repeat."
+
+    </div>
+
+    <div class="bubble bubble2">
+
+        "Every expert was once a beginner."
+
+    </div>
+
+    <div class="bubble bubble3">
+
+        "&lt;/&gt;"
+
+    </div>
+
+    <div class="bubble bubble4">
+
+        "Dream big. Debug bigger."
+
+    </div>
+
+    <div class="bubble bubble5">
+
+        "{ }"
+
+    </div>
+
+</div>
+<head>
+<link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+    <meta charset="UTF-8">
+
+    <title>Questions</title>
+
+    <link rel="stylesheet"
+          th:href="@{/css/questions.css}">
+
+</head>
+
+<h1>Questions</h1>
+
+<table border="1">
+
+<tr>
+    <th>Title</th>
+    <th>Difficulty</th>
+    <th>Company</th>
+    <th>Topic</th>
+</tr>
+
+<tr th:each="q : ${questions}">
+
+    <td>
+
+<a th:href="@{/question/{id}(id=${q.id})}"
+   th:text="${q.title}">
+</a>
+
+</td>
+
+    <td th:text="${q.difficulty}"></td>
+
+    <td th:text="${q.company}"></td>
+
+    <td th:text="${q.topic}"></td>
+
+</tr>
+
+</table>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+
+</html>

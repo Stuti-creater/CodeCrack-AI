@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>
+
+Interview Report
+
+</title>
+
+<link rel="stylesheet"
+      th:href="@{/css/interview-report.css}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+
+📊 AI Interview Report
+
+</h1>
+
+<div class="report-card">
+
+<pre th:text="${report}"></pre>
+
+</div>
+
+<a href="/voice-interview">
+
+<button>
+
+🔄 Take Another Interview
+
+</button>
+
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mock Interview | CodeCrack AI</title>
+<link rel="stylesheet"
+      th:href="@{/css/themes.css}">
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#0a0f1f;
+color:white;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:22px 70px;
+background:rgba(255,255,255,.05);
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-size:30px;
+font-weight:bold;
+color:#60a5fa;
+}
+
+.nav-links{
+display:flex;
+gap:30px;
+}
+
+.nav-links a{
+text-decoration:none;
+color:#cbd5e1;
+}
+
+.hero{
+text-align:center;
+padding:50px 20px;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.hero p{
+color:#94a3b8;
+margin-top:12px;
+}
+
+.container{
+width:88%;
+max-width:900px;
+margin:auto;
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+padding:35px;
+border-radius:28px;
+}
+
+select{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:#111827;
+color:white;
+margin-top:14px;
+font-size:16px;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+margin-top:18px;
+background:#2563eb;
+color:white;
+cursor:pointer;
+font-size:16px;
+}
+
+.question-box{
+display:none;
+margin-top:30px;
+background:#111827;
+padding:28px;
+border-radius:20px;
+}
+
+.timer{
+font-size:20px;
+color:#facc15;
+margin-bottom:18px;
+}
+
+.question{
+font-size:24px;
+line-height:1.6;
+margin:20px 0;
+}
+
+.feedback{
+margin-top:20px;
+padding:18px;
+border-radius:18px;
+background:#1e293b;
+display:none;
+}
+
+.feedback h3{
+color:#60a5fa;
+margin-bottom:10px;
+}
+
+.history{
+margin-top:35px;
+}
+
+.history-item{
+background:#111827;
+padding:14px;
+border-radius:14px;
+margin-bottom:10px;
+}
+
+footer{
+text-align:center;
+padding:40px;
+color:#94a3b8;
+}
+</style>
+</head>
+
+<body id="theme-body">
+
+<nav>
+<div class="logo">🚀 CodeCrack AI</div>
+
+<div class="nav-links">
+<a href="/">Home</a>
+<a href="/practice">Practice</a>
+<a href="/mock">Mock</a>
+<a href="/progress">Progress</a>
+</div>
+</nav>
+
+<section class="hero">
+<h1>🎤 Mock Interview Simulator</h1>
+<p>Practice FAANG-style interviews.</p>
+</section>
+
+<div class="container">
+
+<label>Choose Company</label>
+<select id="company">
+<option>Google</option>
+<option>Amazon</option>
+<option>Microsoft</option>
+<option>Meta</option>
+</select>
+
+<label style="margin-top:18px;display:block;">
+Choose Round
+</label>
+
+<select id="round">
+<option>Technical</option>
+<option>Behavioral</option>
+<option>HR</option>
+</select>
+
+<button onclick="startInterview()">
+Start Interview
+</button>
+
+<div class="question-box" id="questionBox">
+
+<div class="timer">
+⏱ Time Left:
+<span id="timer">45</span>s
+</div>
+
+<h2 id="title"></h2>
+
+<div class="question" id="question">
+Question appears here...
+</div>
+
+<button onclick="nextQuestion()">
+Next Question
+</button>
+
+<button onclick="finishInterview()">
+Finish Interview
+</button>
+
+<div class="feedback" id="feedback">
+<h3>Interview Feedback</h3>
+<p id="feedbackText"></p>
+</div>
+
+</div>
+
+<div class="history">
+<h2 style="margin-bottom:18px;color:#60a5fa;">
+Interview History
+</h2>
+
+<div id="historyBox"></div>
+</div>
+
+</div>
+
+<footer>
+© 2026 CodeCrack AI 🚀
+</footer>
+
+<script>
+
+const questions={
+Google:{
+Technical:[
+"Explain Binary Search complexity.",
+"Solve Two Sum.",
+"Difference between BFS and DFS?"
+],
+Behavioral:[
+"Tell me about a challenge.",
+"Describe a leadership moment."
+],
+HR:[
+"Why Google?"
+]
+},
+
+Amazon:{
+Technical:[
+"Explain Merge Sort.",
+"Solve Move Zeroes.",
+"What is HashMap?"
+],
+Behavioral:[
+"Describe conflict resolution."
+],
+HR:[
+"Why Amazon?"
+]
+},
+
+Microsoft:{
+Technical:[
+"What is Linked List?",
+"Explain Binary Tree Traversal."
+],
+Behavioral:[
+"Tell me about teamwork."
+],
+HR:[
+"Why Microsoft?"
+]
+},
+
+Meta:{
+Technical:[
+"What is recursion?",
+"Explain Graph traversal."
+],
+Behavioral:[
+"Tell me about innovation."
+],
+HR:[
+"Why Meta?"
+]
+}
+};
+
+let selected=[];
+let current=0;
+let timerInterval;
+
+function startInterview(){
+
+let company=
+document.getElementById(
+"company"
+).value;
+
+let round=
+document.getElementById(
+"round"
+).value;
+
+selected=
+questions[company][round];
+
+current=0;
+
+document.getElementById(
+"questionBox"
+).style.display="block";
+
+document.getElementById(
+"title"
+).innerText=
+company+" • "+round;
+
+document.getElementById(
+"question"
+).innerText=
+selected[current];
+
+startTimer();
+
+document.getElementById(
+"feedback"
+).style.display="none";
+}
+
+function nextQuestion(){
+
+current++;
+
+if(current>=selected.length){
+current=0;
+}
+
+document.getElementById(
+"question"
+).innerText=
+selected[current];
+}
+
+function startTimer(){
+
+clearInterval(timerInterval);
+
+let time=45;
+
+document.getElementById(
+"timer"
+).innerText=time;
+
+timerInterval=setInterval(()=>{
+
+time--;
+
+document.getElementById(
+"timer"
+).innerText=time;
+
+if(time<=0){
+clearInterval(timerInterval);
+finishInterview();
+}
+
+},1000);
+}
+
+function finishInterview(){
+
+clearInterval(timerInterval);
+
+let company=
+document.getElementById(
+"company"
+).value;
+
+let round=
+document.getElementById(
+"round"
+).value;
+
+let history=
+JSON.parse(
+localStorage.getItem(
+"history"
+)||"[]"
+);
+
+history.unshift(
+company+" • "+round
+);
+
+localStorage.setItem(
+"history",
+JSON.stringify(history)
+);
+
+let count=parseInt(
+localStorage.getItem(
+"mockCount"
+)||0
+);
+
+localStorage.setItem(
+"mockCount",
+count+1
+);
+
+document.getElementById(
+"feedback"
+).style.display="block";
+
+const feedbacks=[
+"Strong start. Practice more DP and Graphs.",
+"Great confidence. Improve speed on coding rounds.",
+"Good attempt. Focus on Binary Search and Trees.",
+"Nice work. Behavioral answers can improve."
+];
+
+document.getElementById(
+"feedbackText"
+).innerText=
+feedbacks[
+Math.floor(
+Math.random()*feedbacks.length
+)];
+
+loadHistory();
+}
+
+function loadHistory(){
+
+let history=
+JSON.parse(
+localStorage.getItem(
+"history"
+)||"[]"
+);
+
+let box=
+document.getElementById(
+"historyBox"
+);
+
+box.innerHTML="";
+
+history.forEach(item=>{
+
+box.innerHTML+=`
+<div class="history-item">
+${item}
+</div>
+`;
+
+});
+}
+
+loadHistory();
+
+</script>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+</html>
+

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body id="theme-body">
+
+<h1>Submission History</h1>
+
+<table border="1">
+
+<tr>
+    <th>Question</th>
+    <th>Verdict</th>
+    <th>Time</th>
+</tr>
+
+<tr th:each="s : ${history}">
+
+    <td th:text="${s.questionName}"></td>
+
+    <td th:text="${s.verdict}"></td>
+
+    <td th:text="${s.submittedAt}"></td>
+
+</tr>
+
+</table>
+<script th:src="@{/js/theme.js}">
+</script>
+</body>
+</html>

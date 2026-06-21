@@ -1,0 +1,177 @@
+body{
+
+    background:
+        radial-gradient(circle at top left,
+        rgba(59,130,246,.25),
+        transparent 35%),
+
+        radial-gradient(circle at bottom right,
+        rgba(168,85,247,.25),
+        transparent 40%),
+
+        linear-gradient(
+            135deg,
+            #020617,
+            #0f172a,
+            #1e1b4b
+        );
+
+    color:white;
+
+    min-height:100vh;
+
+    font-family:Arial,sans-serif;
+
+    padding:40px;
+
+}
+.interview-card{
+
+    max-width:900px;
+
+    margin:auto;
+
+    padding:40px;
+
+    background:
+
+            rgba(
+                    255,
+                    255,
+                    255,
+                    .08
+            );
+
+    backdrop-filter:
+
+            blur(
+                    20px
+            );
+
+    border-radius:30px;
+
+    border:
+
+            1px solid
+
+            rgba(
+                    255,
+                    255,
+                    255,
+                    .12
+            );
+
+}
+.results-card{
+
+    margin-top:30px;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    background:
+
+        rgba(
+            255,
+            255,
+            255,
+            .08
+        );
+
+    backdrop-filter:
+
+        blur(
+            15px
+        );
+
+    border:
+
+        1px solid
+
+        rgba(
+            255,
+            255,
+            255,
+            .12
+        );
+
+}
+textarea{
+
+    width:100%;
+
+    padding:20px;
+
+    border-radius:20px;
+
+    border:none;
+
+    background:
+
+            rgba(
+                    255,
+                    255,
+                    255,
+                    .08
+            );
+
+    color:white;
+
+    font-size:16px;
+
+    resize:none;
+
+    margin-top:20px;
+
+}
+button{
+
+    padding:12px 25px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    margin-top:20px;
+
+    margin-right:10px;
+
+    background:
+
+            linear-gradient(
+                    135deg,
+                    #3b82f6,
+                    #8b5cf6
+            );
+
+    color:white;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+button:hover{
+
+    transform:
+
+            translateY(
+                    -3px
+            );
+
+}
+.results-card pre{
+
+    white-space:pre-wrap;
+
+    line-height:1.7;
+
+    font-size:16px;
+
+    color:#f8fafc;
+
+}
