@@ -2,6 +2,18 @@
 
 <p align="center">
 
+<img src="https://img.shields.io/badge/Java-17-orange">
+
+<img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen">
+
+<img src="https://img.shields.io/badge/MySQL-8-blue">
+
+<img src="https://img.shields.io/badge/License-MIT-green">
+
+<img src="https://img.shields.io/badge/Status-Active-success">
+
+</p>
+
 **An AI-Powered Coding Interview Preparation Platform**
 
 Practice • Learn • Improve • Crack Your Dream Job
@@ -17,6 +29,11 @@ CodeCrack AI is a full-stack coding interview preparation platform that helps st
 It combines coding practice, AI-powered feedback, resume analysis, mock interviews, contests, progress tracking, and personalized learning into one platform.
 
 The goal is to provide an experience similar to popular interview preparation platforms while integrating modern AI features.
+# 🌐 Live Demo
+
+🚧 Coming Soon...
+
+(Currently preparing deployment on Render.)
 
 ---
 
@@ -81,19 +98,25 @@ The goal is to provide an experience similar to popular interview preparation pl
 
 ## 🏠 Home Dashboard
 
-![Home](images/home.png)
+![Dashboard](images/home-dashboard.png)
+
+![Features](images/home-features.png)
+
+![Statistics](images/home-stats.png)
+
+![Footer](images/home-footer.png)
 
 ---
 
 ## 💻 Practice Questions
 
-![Practice](images/practice.png)
+![Practice](images/practice-page.png)
 
 ---
 
 ## 📊 Progress Dashboard
 
-![Progress](images/progress.png)
+![Progress](images/progress-dashboard.png)
 
 ---
 
@@ -111,13 +134,13 @@ The goal is to provide an experience similar to popular interview preparation pl
 
 ## 🎤 AI Voice Interview
 
-![AI Voice Interview](images/voice-interview.png)
+![AI Voice Interview](images/ai-voice-interview.png)
 
 ---
 
 ## 📄 AI Resume Studio
 
-![Resume Studio](images/resume-ai.png)
+![Resume Studio](images/resume-analyzer.png)
 
 ---
 
@@ -189,7 +212,9 @@ with your database credentials.
 Add your own Groq API key:
 
 ```
-groq.api.key=YOUR_GROQ_API_KEY
+Create an environment variable:
+
+GROQ_API_KEY=YOUR_GROQ_API_KEY
 ```
 
 ## Run Application
