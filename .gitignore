@@ -39,15 +39,6 @@ Solution.class
 # Java compiled files
 *.class
 
-# IntelliJ
-.idea/
-*.iml
-
-# VS Code
-.vscode/
-
-# Maven build
-target/
 
 # Environment files
 .env
